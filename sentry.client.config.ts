@@ -6,6 +6,7 @@ import * as Sentry from '@sentry/nextjs';
 import * as Spotlight from '@spotlightjs/spotlight';
 
 Sentry.init({
+  dsn: 'https://7e8509d6317bdbd51491337f1da3cd26@o4507633559732224.ingest.us.sentry.io/4507633564450816',
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 1,
 
@@ -16,7 +17,7 @@ Sentry.init({
 
   // This sets the sample rate to be 10%. You may want this to be 100% while
   // in development and sample at a lower rate in production
-  replaysSessionSampleRate: 0.1,
+  replaysSessionSampleRate: 1.0,
 
   // You can remove this option if you're not planning to use the Sentry Session Replay feature:
   integrations: [
