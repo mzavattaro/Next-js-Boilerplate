@@ -13,8 +13,6 @@ const GuestbookList = async () => {
 
   logger.info('Get all guestbook entries');
 
-  console.log(guestbook);
-
   return (
     <div className="mt-5" data-testid="guestbook-list">
       {guestbook.map((elt) => (
