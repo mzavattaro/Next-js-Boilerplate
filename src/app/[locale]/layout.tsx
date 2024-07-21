@@ -9,6 +9,7 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 import { DemoBadge } from '@/components/DemoBadge';
 import { AppConfig } from '@/utils/AppConfig';
 
+import CSPostHogProvider from '../../providers';
 // Configure Open Sans instead of Inter
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -56,16 +57,18 @@ export default function RootLayout(props: {
 
   return (
     <html lang={props.params.locale} className={openSans.className}>
-      <body>
-        <NextIntlClientProvider
-          locale={props.params.locale}
-          messages={messages}
-        >
-          {props.children}
+      <CSPostHogProvider>
+        <body>
+          <NextIntlClientProvider
+            locale={props.params.locale}
+            messages={messages}
+          >
+            {props.children}
 
-          <DemoBadge />
-        </NextIntlClientProvider>
-      </body>
+            <DemoBadge />
+          </NextIntlClientProvider>
+        </body>
+      </CSPostHogProvider>
     </html>
   );
 }
